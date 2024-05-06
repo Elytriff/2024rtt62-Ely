@@ -2,7 +2,7 @@ package org.example.glab_303_5_1_Forloop;
 
 import jdk.jfr.Percentage;
 
-public interface PredictFutureTuittion {
+public class PredictFutureTuittion {
     public static void main(String[] Args) {
         //Predict Future Tuition
         //Suppose the tuition for a university is $10,000 for the current year and increases by 7 percent every year
