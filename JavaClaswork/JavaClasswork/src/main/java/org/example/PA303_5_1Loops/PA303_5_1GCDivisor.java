@@ -1,4 +1,4 @@
-package org.example;
+package org.example.PA303_5_1Loops;
 
 import java.util.Scanner;
 
