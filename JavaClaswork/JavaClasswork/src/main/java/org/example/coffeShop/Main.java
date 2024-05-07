@@ -3,24 +3,26 @@ package org.example.coffeShop;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainCoffe {
-    public static void main(String[] args) {
-        List<Product> products = new ArrayList<>();
+public class Main {
 
-        Product coffee = new Product();
-        coffee.setPrice(5.45);
-        coffee.setName("Small coffee");
-        coffee.setBeverage(true);
-        products.add(coffee);
+    private CoffeeShop coffeeShop;
 
-        Product cakePop = new Product();
-        coffee.setPrice(3.89);
-        coffee.setName("cakePop");
-        coffee.setBeverage(false);
-        products.add(cakePop);
+    public void printMenu(){
+        System.out.println("0) Exit");
+        System.out.println("1) Print the list of products");
+        System.out.println("2) Order a product");
+    }
 
-        Product eggSandwich = new Product(7.89, "Egg Sandwich", false);
-        products.add(eggSandwich);
+    public void runCoffeShop(){
+        coffeeShop = new CoffeeShop();
+        coffeeShop.initProducts();
+        coffeeShop.printProducts();
+    }
 
+    public static void main(String [] args){
+        Main main = new Main();
+        main.runCoffeShop();
     }
 }
+
+

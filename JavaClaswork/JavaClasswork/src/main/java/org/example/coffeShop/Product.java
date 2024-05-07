@@ -1,13 +1,18 @@
 package org.example.coffeShop;
 
-public class Products {
+public class Product {
     private double price;
     private String name;
     private boolean beverage;
 
     public Product(){
     }
-    public
+    public Product(double price, String name, boolean beverage){
+        this.price = price;
+        this.name = name;
+        this.beverage = beverage;
+    }
+
 
     public double getPrice() {
         return price;
