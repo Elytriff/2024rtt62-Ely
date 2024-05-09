@@ -1,10 +1,6 @@
-package org.example.PracticeAssignMay2;
+package org.example.HomeworkMayDue5.glab_303_2_1;
 
-import org.w3c.dom.ls.LSOutput;
-
-import java.sql.SQLOutput;
-
-public class PA303_2_3 {
+public class PA303_2_3OperatorsAndNumbers {
     public static void main(String[] args){
         //1-Write a program that declares an integer a variable x, assigns the value 2 to it,
         // and prints out the binary string version of the number ( Integer.toBinaryString(x) ).

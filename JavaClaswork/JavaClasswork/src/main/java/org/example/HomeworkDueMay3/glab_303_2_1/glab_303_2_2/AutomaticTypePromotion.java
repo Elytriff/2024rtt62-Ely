@@ -1,4 +1,4 @@
-package org.example.glab_303_2_2;
+package org.example.HomeworkMayDue5.glab_303_2_1.glab_303_2_2;
 
 public class AutomaticTypePromotion {
     public static void main(String[] args) {

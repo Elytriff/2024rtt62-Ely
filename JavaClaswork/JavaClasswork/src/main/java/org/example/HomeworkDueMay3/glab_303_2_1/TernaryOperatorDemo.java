@@ -1,4 +1,4 @@
-package org.example.glab_303_2_1;
+package org.example.HomeworkMayDue5.glab_303_2_1;
 
 public class TernaryOperatorDemo {
     public static void main(String[] args) {
