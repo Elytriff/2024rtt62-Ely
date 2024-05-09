@@ -1,4 +1,4 @@
-package org.example;
+package org.example.PracticeAssignMay2;
 
 import static java.lang.String.format;
 

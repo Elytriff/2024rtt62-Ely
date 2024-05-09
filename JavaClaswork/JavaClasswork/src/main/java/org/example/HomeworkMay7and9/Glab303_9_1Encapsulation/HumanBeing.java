@@ -1,4 +1,4 @@
-package org.example.HomeworkMay7.Glab303_9_1Encapsulation;
+package org.example.HomeworkMay7and9.Glab303_9_1Encapsulation;
 
 public class HumanBeing {
     private float weight;

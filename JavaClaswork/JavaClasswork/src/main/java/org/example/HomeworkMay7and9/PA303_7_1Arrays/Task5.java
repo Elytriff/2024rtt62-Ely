@@ -1,4 +1,4 @@
-package org.example.HomeworkMay7.PA303_7_1Arrays;
+package org.example.HomeworkMay7and9.PA303_7_1Arrays;
 
 public class Task5 {
     //Task 5: Write a program where you create an integer array with a length of 5.

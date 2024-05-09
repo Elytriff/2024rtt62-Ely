@@ -1,4 +1,4 @@
-package org.example.HomeworkMayDue6.PA303_4_1ControlFlow.PA303_5_1Loops;
+package org.example.HomeworkMayDue6.PA303_5_1Loops;
 
 public class PredictFutureTuittion {
     public static void main(String[] Args) {

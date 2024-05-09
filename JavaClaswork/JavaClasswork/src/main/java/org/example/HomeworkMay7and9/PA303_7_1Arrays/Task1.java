@@ -1,4 +1,4 @@
-package org.example.HomeworkMay7.PA303_7_1Arrays;
+package org.example.HomeworkMay7and9.PA303_7_1Arrays;
 
 public class Task1 {
     public static void main(String[] args){

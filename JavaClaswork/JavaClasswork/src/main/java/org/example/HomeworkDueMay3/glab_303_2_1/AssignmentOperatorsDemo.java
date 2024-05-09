@@ -1,7 +1,5 @@
 package org.example.HomeworkDueMay3.glab_303_2_1;
 
-import org.w3c.dom.ls.LSOutput;
-
 public class AssignmentOperatorsDemo {
     public static void main(String[] args){
         int j = 10;// gets the value 10

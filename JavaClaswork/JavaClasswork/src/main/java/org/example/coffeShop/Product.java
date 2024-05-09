@@ -4,6 +4,7 @@ public class Product {
     private double price;
     private String name;
     private boolean beverage;
+    private int qualityAvailable;
 
     public Product(){
     }
@@ -11,6 +12,7 @@ public class Product {
         this.price = price;
         this.name = name;
         this.beverage = beverage;
+        this.qualityAvailable = qualityAvailable;
     }
 
 

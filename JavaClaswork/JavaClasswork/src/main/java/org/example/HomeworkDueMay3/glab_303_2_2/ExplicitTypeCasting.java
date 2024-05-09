@@ -1,4 +1,4 @@
-package org.example.HomeworkDueMay3.glab_303_2_1.glab_303_2_2;
+package org.example.HomeworkDueMay3.glab_303_2_2;
 
 public class ExplicitTypeCasting {
     //

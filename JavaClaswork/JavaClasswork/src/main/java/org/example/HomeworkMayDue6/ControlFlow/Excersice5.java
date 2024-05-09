@@ -1,4 +1,4 @@
-package org.example.HomeworkMayDue6.PA303_4_1ControlFlow;
+package org.example.HomeworkMayDue6.ControlFlow;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package org.example.HomeworkMay7.Glab303_9_2InheritanceDemo;
+package org.example.HomeworkMay7and9.Glab303_9_2InheritanceDemo;
 
 public class Hospital {
     public static void main(String args[]) {
