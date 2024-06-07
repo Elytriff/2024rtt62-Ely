@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- telling Hibernate that we are using Mysql database-->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/classic_models</property>
+
+        <!-- database connection information-->
+        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">Cacac@cmysq1</property>
+
+        <!-- Connection pool reduces the load on the server-->
+        <property name="connection.pool_size">3</property>
+
+        <property name="current_session_context_class">thread</property>
+
+        <!-- shows what query hibernate is running, it can be turned off an on-->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!-- This is validation for hibernate-->
+        <property name="hbm2ddl.auto">validate</property>
+
+        <!-- this is telling Hibernate which entities you have in your project-->
+        <!-- each entity needs to have a line here in the config file -->
+        <mapping class="org.example.database.entity.Employee"/>
+        <mapping class="org.example.database.entity.Customers"/>
+        <mapping class="org.example.database.entity.Order"/>
+        <mapping class="org.example.database.entity.Orderdetail"/>
+        <mapping class="org.example.database.entity.Product"/>
+        <mapping class="org.example.database.entity.Productline"/>
+    </session-factory>
+</hibernate-configuration>

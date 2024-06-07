@@ -3,8 +3,17 @@ package org.example.database.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
-import javax.naming.Name;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+
 @Getter
 @Setter
 @Entity
@@ -15,6 +24,9 @@ public class Customers {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Order> orders;
 
     @Column(name = "customer_name")
     private String customerName;
@@ -46,10 +58,18 @@ public class Customers {
     @Column(name = "country")
     private String country;
 
-    @Column(name = "sales_rep_employee_id")
+    // you can only use a primitive type if the column is not nullable
+
+    @Column(name = "sales_rep_employee_id", updatable = false, insertable = false)
     private Integer salesRepEmployeeId;
 
-    @Column(name = "credit_limit")
-    private Float creditLimit;
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "sales_rep_employee_id", nullable = true)
+    private Employee employee;
+
+    @Column(name = "credit_limit", columnDefinition = "Decimal")
+    private Double creditLimit;
+
 
 }
