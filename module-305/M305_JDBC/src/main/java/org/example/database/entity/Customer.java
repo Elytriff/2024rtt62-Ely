@@ -25,8 +25,10 @@ public class Customers {
     @Column(name = "id")
     private Integer id;
 
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Order> orders;
+ //---------- mappedBy = "name_of_the_column_in_the_foreign_table", -----------------
+
+    @OneToMany(mappedBy = "customer_id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Order> orders; // <ClassEntity>
 
     @Column(name = "customer_name")
     private String customerName;
