@@ -1,14 +1,15 @@
 package org.example.database.dao;
 
 import jakarta.persistence.TypedQuery;
-import org.example.database.entity.Customers;
 import org.example.database.entity.Order;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
+
 public class OrderDAO {
-//------------------method findById--------------------
+//------------------method findByOrder_Id--------------------
 
     public Order findByOrderId(Integer id) {
 
@@ -24,16 +25,16 @@ public class OrderDAO {
         // try-catch
         try {
             Order result = query.getSingleResult();
-            return result;
+            return result; //    this will provide an order object, not an integer!!!!!
         } catch (Exception e) {
             return null;
         } finally {
             session.close();
         }
     }
-    //-----------------------------Find by Customer_Id---------------
+    //----------------------------- findOrdersByCustomer_Id---------------
 
-    public Order findByCustomer_Id(Integer customer_id){
+    public List<Order> findOrdersByCustomer_Id(Integer customer_id){
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
@@ -42,12 +43,12 @@ public class OrderDAO {
         query2.setParameter("xcustomer_id", customer_id);
 
         try {
-            Order result2 = query2.getSingleResult();
-            return result2;
+            return query2.getResultList(); // this will return a list of orders
         } catch (Exception e) {
             return null;
         } finally {
             session.close();
         }
     }
+
 }

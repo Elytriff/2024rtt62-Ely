@@ -2,14 +2,14 @@ package org.example.database;
 
 import org.example.database.dao.CustomersDAO;
 import org.example.database.dao.OrderDAO;
-import org.example.database.dao.OrderdetailsDAO;
+import org.example.database.dao.OrderdetailDAO;
 import org.example.database.dao.ProductDAO;
-import org.example.database.entity.Customers;
+import org.example.database.entity.Customer;
 import org.example.database.entity.Order;
 import org.example.database.entity.Orderdetail;
 import org.example.database.entity.Product;
 
-public class MainOrderDetails {
+public class MainOrderDetail {
     // 1) Load an order from the database by id
     // 2) Load a product from the database by id
     // 3) Create a new OrderDetail object and add the order and the predict
@@ -21,35 +21,35 @@ public class MainOrderDetails {
     // 3) check if the order detail returned is null and if so create a new order detail
     // 4) check if the quantity orderd == null if so set to 1 otherwise increment by 1
     // 5) when saving ... check if the orderdetail.getid == null .. if so then it is an insert otherwise it is an update
-    private OrderDAO orderDAO= new OrderDAO ();
-    private ProductDAO productDAO= new ProductDAO ();
-    private OrderdetailsDAO orderdetailsDAO= new OrderdetailsDAO ();
+    private OrderDAO orderDAO = new OrderDAO();
+    private ProductDAO productDAO = new ProductDAO();
+    private OrderdetailDAO orderdetailsDAO = new OrderdetailDAO();
     private CustomersDAO customersDAO = new CustomersDAO();
 
     //------------------------------------------ Method Run---------------------------------
-    public void run(){
-    Order order = orderDAO.findByOrderId(10100);
-    // read the product from the database
+    public void run() {
+        Order order = orderDAO.findByOrderId(10100);
+        // read the product from the database
         Product product = new ProductDAO().findById(77);
-    Customers customers = order.getCustomer_id();
+        Customer customers = order.getCustomer_id();
 
-    System.out.println(product);
-    System.out.println(order);
-    System.out.println("This order is for customer with an id " + order.getCustomer_id().getId());
+        System.out.println(product);
+        System.out.println(order);
+        System.out.println("This order is for customer with an id " + order.getCustomer_id().getId());
 
-    for (Orderdetail od : order.getOrderdetails()){
-        System.out.println(od.getProduct().getProductName() +"|"+ od.getQuantityOrdered() + "|"+ od.getPriceEach());
-    }
-    // setup the order details object with the values I want to save to the database
+        for (Orderdetail od : order.getOrderdetails()) {
+            System.out.println(od.getProduct().getProductName() + "|" + od.getQuantityOrdered() + "|" + od.getPriceEach());
+        }
+        // setup the order details object with the values I want to save to the database
         // if this query returns a order detail then it means this product is already part of the order
 
-    Orderdetail orderdetail = orderdetailsDAO.findByOrderIdAndProductId(order.getId(), product.getId());
-    if (orderdetail == null){  // this means the product was not found in the database as part of the order
-                               // this will be an insert of a new product
-        orderdetail = new Orderdetail();
-    }
+        Orderdetail orderdetail = orderdetailsDAO.findByOrderIdAndProductId(order.getId(), product.getId());
+        if (orderdetail == null) {  // this means the product was not found in the database as part of the order
+            // this will be an insert of a new product
+            orderdetail = new Orderdetail();
+        }
 
-        if ( orderdetail.getQuantityOrdered() == null) {
+        if (orderdetail.getQuantityOrdered() == null) {
             // this is a new product being added to the order
             orderdetail.setQuantityOrdered(1);
         } else {
@@ -59,27 +59,28 @@ public class MainOrderDetails {
 
         // we can just set the product and order objects we just queried on the order detail
 
-    orderdetail.setProduct(product);
-    orderdetail.setOrder(order);
-    orderdetail.setQuantityOrdered(orderdetail.getQuantityOrdered() +1);//
-    orderdetail.setPriceEach(product.getMsrp());
-    orderdetail.setOrderLineNumber(10);
+        orderdetail.setProduct(product);
+        orderdetail.setOrder(order);
+        orderdetail.setQuantityOrdered(orderdetail.getQuantityOrdered() + 1);//
+        orderdetail.setPriceEach(product.getMsrp());
+        orderdetail.setOrderLineNumber(10);
 
         // save the order details to the database
         // it is important to know ... if the id is null then you need to insert it
         // if the record was found in the database then the id will be not null so that is how we know it is an update rather than an insert
-        if ( orderdetail.getId() == null ) {
+        if (orderdetail.getId() == null) {
             // hibernate will automatically populate the id as part of the insert and it will be the new id generated by the auto increment
             orderdetailsDAO.insert(orderdetail);
         } else {
             orderdetailsDAO.update(orderdetail);
         }
 
-}
+    }
+
     //------------------- Main Method _________________________________
     public static void main(String[] args) {
 
-        MainOrderDetails mainOrderDetails = new MainOrderDetails();
+        MainOrderDetail mainOrderDetails = new MainOrderDetail();
         mainOrderDetails.run();
     }
 }

@@ -3,12 +3,9 @@ package org.example.database.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 @ToString
 @AllArgsConstructor
@@ -18,15 +15,15 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "customers")
-public class Customers {
+public class Customer {
 
     @Id // telling Hibernate this is a PK (primary key)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private int id;
 
  //---------- mappedBy = "name_of_the_column_in_the_foreign_table", -----------------
-
+    @ToString.Exclude
     @OneToMany(mappedBy = "customer_id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Order> orders; // <ClassEntity>
 

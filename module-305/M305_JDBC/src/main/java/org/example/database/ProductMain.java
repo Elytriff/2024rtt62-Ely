@@ -106,6 +106,7 @@ public class ProductMain {
         return productName;
     }
 
+//-------------------------The main ---------------------------------------------------------------------------//
     public static void main(String[] args) {
         ProductMain pm = new ProductMain();
         pm.run();

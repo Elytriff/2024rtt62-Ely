@@ -2,7 +2,6 @@ package org.example.database.dao;
 
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
-import org.example.database.entity.Customers;
 import org.example.database.entity.Product;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

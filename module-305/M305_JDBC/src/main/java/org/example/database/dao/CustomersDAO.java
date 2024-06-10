@@ -1,8 +1,7 @@
 package org.example.database.dao;
 
 import jakarta.persistence.TypedQuery;
-import org.example.database.entity.Customers;
-import org.example.database.entity.Employee;
+import org.example.database.entity.Customer;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -13,15 +12,15 @@ public class CustomersDAO {
 
     //-----------------------------Method findByCustomerName----------------------
 
-    public List<Customers> findByCustomerName(String customer) {
+    public List<Customer> findByCustomerName(String customer) {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
-        String hqlCustomer = "SELECT c FROM Customers c WHERE c.customerName = :xcustomerName";
+        String hqlCustomer = "SELECT c FROM Customer c WHERE c.customerName = :xcustomerName";
 
-        TypedQuery<Customers> query = session.createQuery(hqlCustomer, Customers.class);
+        TypedQuery<Customer> query = session.createQuery(hqlCustomer, Customer.class);
         query.setParameter("xcustomerName", customer);
 
-        List<Customers> result = query.getResultList();
+        List<Customer> result = query.getResultList();
 
         session.close();
 
@@ -30,15 +29,15 @@ public class CustomersDAO {
     }
     //--------------------Method fidByContactFirstName-----------------------
 
-    public List<Customers> fidByContactFirstName(String contactName) {
+    public List<Customer> fidByContactFirstName(String contactName) {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
-        String hqlCustomer = "SELECT c FROM Customers c WHERE c.contactFirstname = :whatever";
+        String hqlCustomer = "SELECT c FROM Customer c WHERE c.contactFirstname = :whatever";
 
-        TypedQuery<Customers> query = session.createQuery(hqlCustomer, Customers.class);
+        TypedQuery<Customer> query = session.createQuery(hqlCustomer, Customer.class);
         query.setParameter("whatever", contactName);
 
-        List<Customers> result = query.getResultList();
+        List<Customer> result = query.getResultList();
 
         session.close();
 
@@ -47,7 +46,7 @@ public class CustomersDAO {
     }
 //------------------------Method insert------------------------------------------
 
-    public void insert(Customers customer) {
+    public void insert(Customer customer) {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         session.getTransaction().begin();
@@ -58,21 +57,21 @@ public class CustomersDAO {
 
     //------------------method findById--------------------
 
-    public Customers findCustomerById(Integer id) {
+    public Customer findCustomerById(Integer id) {
 
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
 
-        String hql = "SELECT c FROM Customers c where c.id = :xid";
-        TypedQuery<Customers> query = session.createQuery(hql, Customers.class);
+        String hql = "SELECT c FROM Customer c where c.id = :xid";
+        TypedQuery<Customer> query = session.createQuery(hql, Customer.class);
         query.setParameter("xid", id);
 
         // we are querying a PK so the result can be found or not
         //this implementation will throw an exception in codes 2010 and under if the record is not found, so we put a
         // try-catch
         try {
-            Customers result = query.getSingleResult();
+            Customer result = query.getSingleResult();
             return result;
         } catch (Exception e) {
             return null;
@@ -84,7 +83,7 @@ public class CustomersDAO {
 
     //-------------------method update----------------------
 
-    public void update(Customers customer) {
+    public void update(Customer customer) {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         session.getTransaction().begin();

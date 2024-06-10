@@ -1,14 +1,14 @@
 package org.example.database;
 
 import org.example.database.dao.CustomersDAO;
-import org.example.database.entity.Customers;
+import org.example.database.entity.Customer;
 
 public class MainCustomer {
     public static void main(String args[]){
 
 //--------------------- exercise 3--------------------------
         CustomersDAO customersDAO = new CustomersDAO();
-        Customers newCustomer = new Customers();
+        Customer newCustomer = new Customer();
 //
         newCustomer.setAddressLine1("74 West");
         newCustomer.setCity("Miami");
@@ -27,7 +27,7 @@ public class MainCustomer {
 
 
         //-------------------------- exercise 4------------------------
-  //      Customers newCustomer2 = customersDAO.findCustomerById(525);
+  //      Customer newCustomer2 = customersDAO.findCustomerById(525);
 //        //System.out.println(newCustomer2);
 //
 //        Scanner scanner = new Scanner(System.in);

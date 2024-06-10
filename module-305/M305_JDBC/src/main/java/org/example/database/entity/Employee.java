@@ -20,7 +20,7 @@ public class Employee {
 
     @ToString.Exclude
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Customers> customers;
+    private List<Customer> customers;
 
     @Column(name = "office_id")
     private Integer officeId;

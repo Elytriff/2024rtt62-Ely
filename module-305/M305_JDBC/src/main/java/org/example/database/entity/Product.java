@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -26,6 +27,7 @@ public class Product {
     @Column(name = "product_name", nullable = false, length = 70)
     private String productName;
 
+    @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "productline_id", nullable = false)
     private Productline productline;
@@ -42,13 +44,14 @@ public class Product {
     @Column(name = "quantity_in_stock", columnDefinition = "smallint")
     private Integer quantityInStock;
 
-    @Column(name = "buy_price", nullable = false, precision = 10, scale = 2)
-    private BigDecimal buyPrice;
+    @Column(name = "buy_price", nullable = false, columnDefinition = "Decimal")
+    private Double buyPrice;
 
-    @Column(name = "msrp", nullable = false, precision = 10, scale = 2)
-    private BigDecimal msrp;
+    @Column(name = "msrp", nullable = false, columnDefinition = "DECIMAL")
+    private Double msrp;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "product")
-    private Set<Orderdetail> orderdetails = new LinkedHashSet<>();
+    private List<Orderdetail> orderdetails;
 
 }

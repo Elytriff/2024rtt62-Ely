@@ -1,10 +1,7 @@
 package org.example.database.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -20,6 +17,7 @@ public class Orderdetail {
     @Column(name = "id", nullable = false)
     private Integer id;
 
+    @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
@@ -27,12 +25,13 @@ public class Orderdetail {
     @Column(name = "quantity_ordered", nullable = false)
     private Integer quantityOrdered;
 
-    @Column(name = "price_each", nullable = false, precision = 10, scale = 2)
-    private BigDecimal priceEach;
+    @Column(name = "price_each", nullable = false, precision = 10, columnDefinition = "DECIMAL")
+    private Double priceEach;
 
-    @Column(name = "order_line_number", nullable = false)
-    private Short orderLineNumber;
+    @Column(name = "order_line_number", nullable = false, columnDefinition = "SMALLINT")
+    private Integer orderLineNumber;
 
+    @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
