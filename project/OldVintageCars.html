@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Old Vintage Cars</title>
+  <!-- Bootstrap CDN-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="CSS styles/carruselCSS.css">
+</head>
+
+
+<body>
+
+  <body>
+    <section class="section" style="padding-bottom: 5%;">
+      <!-- ----------------Logo---------->
+      <header style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: flex-start;
+              margin-top: 10%;
+              padding-left: 5%;
+            ">
+        <div style="display: flex; justify-content: center; width: 100%">
+          <div style="width: 100%; display: flex; justify-content: center">
+            <img src="images/logo.png" alt="Qvainside Logo" style="padding: 20px" />
+          </div>
+          <!-------------------------- Buttons sing in -->
+          <div style="
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: center;
+                margin-left: auto;
+                margin-right: 5%;
+              ">
+            <button style="width: 100%;"  class="btn btn-primary" type="button">Sign in</button>
+            <button class="btn btn-primary" type="button">Register</button>
+          </div>
+        </div>
+
+        <!-- ------------------Navigation Bar -------------------->
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent;"
+          style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+          <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="HomePage.html">HOME</a>
+                </li>
+                <!-- <li class="nav-item">
+                      <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Pricing</a>
+                    </li> -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    SERVICES
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">TOURS</a></li>
+                    <li><a class="dropdown-item" href="OldVintageCars.html">CAR RENTALS</a></li>
+                    <li>
+                      <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </section>
+
+    <!-----------------------------Carrusel Section ------------------------------------>
+    <section>
+      <div class="container">
+        <div class="carousel">
+          <input type="radio" name="slides" checked="checked" id="slide-1">
+          <input type="radio" name="slides" id="slide-2">
+          <input type="radio" name="slides" id="slide-3">
+          <input type="radio" name="slides" id="slide-4">
+          <input type="radio" name="slides" id="slide-5">
+          <input type="radio" name="slides" id="slide-6">
+          <ul class="carousel__slides">
+
+            <li class="carousel__slide">
+              <figure>
+                <div>
+                  <img src="images/Cars/laNave.JPG" alt="Blue Chevy">
+                </div>
+                <figcaption id="laNave">
+                  <!------------------------------------------Table Green Car ----------------->
+
+                  <div class="table-responsive" id="GreenCarTable">
+                    <table class="table" style="width: auto; table-layout: auto;">
+                      <thead>
+                        <tr>
+                          <th scope="col" colspan="2" style="text-align: center;">Characteristics</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Model</th>
+                          <td>Ford 52</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Color</th>
+                          <td>Green</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Air conditioner</th>
+                          <td>yes</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Passengers</th>
+                          <td>4</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                </figcaption>
+              </figure>
+            </li>
+
+            <li class="carousel__slide">
+              <figure>
+                <div>
+                  <img src="images/Cars/GoldenChevy.jpg" alt="">
+                </div>
+                <figcaption id="GoldenChevy">
+
+                  <!------------------------------------------Table Golden Chevy ----------------->
+
+                  <div class="table-responsive" id="GoldenChevyTable">
+                    <table class="table" style="width: auto; table-layout: auto;">
+                      <thead>
+                        <tr>
+                          <th scope="col" colspan="2" style="text-align: center;">Characteristics</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Model</th>
+                          <td>Ford 56</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Color</th>
+                          <td>Golden & White</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Air conditioner</th>
+                          <td>yes</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Passengers</th>
+                          <td>4</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                </figcaption>
+              </figure>
+            </li>
+
+            <li class="carousel__slide">
+              <figure>
+                <div>
+                  <img src="images/Cars/GreenCar.jpg" alt="">
+                </div>
+                <figcaption id="GreenCar">
+
+                  <!------------------------------------------Table Green Car ----------------->
+
+                  <div class="table-responsive" id="GreenCarTable">
+                    <table class="table" style="width: auto; table-layout: auto;">
+                      <thead>
+                        <tr>
+                          <th scope="col" colspan="2" style="text-align: center;">Characteristics</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Model</th>
+                          <td>Ford 52</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Color</th>
+                          <td>Green</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Air conditioner</th>
+                          <td>yes</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Passengers</th>
+                          <td>4</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                </figcaption>
+              </figure>
+            </li>
+
+            <li class="carousel__slide">
+              <figure>
+                <div>
+                  <img src="images/Cars/redCar.jpg" alt="">
+                </div>
+                <figcaption id="redCar">
+                  <!------------------------------------------Table  red Buick ----------------->
+
+                  <div class="table-responsive" id="redCarTable">
+                    <table class="table" style="width: auto; table-layout: auto;">
+                      <thead>
+                        <tr>
+                          <th scope="col" colspan="2" style="text-align: center;">Characteristics</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Model</th>
+                          <td>Buick</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Color</th>
+                          <td>Red</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Air conditioner</th>
+                          <td>No</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Passengers</th>
+                          <td>4</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </figcaption>
+              </figure>
+            </li>
+
+          </ul>
+          <ul class="carousel__thumbnails">
+            <li>
+              <label for="slide-1"><img src="images/Cars/laNave.JPG" alt=""></label>
+            </li>
+            <li>
+              <label for="slide-2"><img src="images/Cars/GoldenChevy.jpg" alt=""></label>
+            </li>
+            <li>
+              <label for="slide-3"><img src="images/Cars/GreenCar.jpg" alt=""></label>
+            </li>
+            <li>
+              <label for="slide-4"><img src="images/Cars/redCar.jpg" alt=""></label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </body>
+
+  <script src="qvainside Functions.js">
+    // Call the function for the carrusel tables after the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', tablePublisher);
+  </script>
+
+</html>
