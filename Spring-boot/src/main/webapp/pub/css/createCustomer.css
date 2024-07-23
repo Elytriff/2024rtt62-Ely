@@ -1,0 +1,17 @@
+
+
+.container_form{
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.row_form{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.input_label{
+    margin: 10px;
+    flex: 1 1 50%;
+}
