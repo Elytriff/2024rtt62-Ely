@@ -1,9 +1,6 @@
 
-//----------------------------------Registartion button function--------------------------
 
-function goToRegistration() {
-    window.location.href = '/Registration%20page.html';
-};
+
 
 // --------------------------- Validation function----------------------------
 
