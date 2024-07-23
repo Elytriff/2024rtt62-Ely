@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegistrationPage</title>
+    <!-- Bootstrap CDN-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS styles/HomePage.css">
+    <link rel="stylesheet" href="CSS styles/RegistrationPage.css">
+    <script src="qvainsideFunctions.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="container container-logo">
+            <div class="row">
+                <div class="col">
+                </div> <!--------------- ----------------------------Logo-------------------------------->
+                <div class="col-md-auto">
+                    <img src="images\logo.png" alt="Qvainside Logo">
+                </div>
+                <!-------------------------- ---------------Buttons Sing in, Register ------------------------->
+
+                <div class="col" style="justify-content: center; display: flex; flex-direction: column;
+          align-items:center;">
+                    <a href="#" class="aHome">Sign in</a>
+                    <a href="RegistratioPage.html" class="aHome" onclick="goToRegistration()">Register</a>
+                </div>
+            </div>
+        </div>
+        <!-- -----------------------------------------------Navigation Bar -------------------->
+
+        <div class="navbar">
+            <a href="/HomePage.html">HOME</a>
+            <div class="dropdown">
+                <button class="dropbtn">SERVICES
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">TOURS</a>
+                    <a href="#">CAR SERVICES</a>
+                </div>
+            </div>
+            <a href="#news">Something</a>
+        </div>
+
+    </header>
+
+    <!--------------------------------------------------------------------Registration form-------------------->
+
+
+    <div class="grid-container">
+        <div class="container container-form">
+            <h2>Create an account</h2>
+            <form>
+                <!-- -------------------------------Firstname-------------------->
+                <div class="row row-form">
+                    <div class="column column-form">
+                        <input type="text" id="firstName" required />
+                        <label for="firstName">First name</label>
+                        <div id="firstNameHelp"></div </div>
+                    </div>
+                    <!-- ------------------------------Lastname -------------------->
+                    <div class="column column-form">
+                        <input type="text" id="lastName" required />
+                        <label for="lastName">Last name</label>
+                        <div id="lastNameHelp"></div>
+
+                    </div>
+                </div>
+                <!-- ------------------Country and City -------------------->
+                <div class="row row-form">
+                    <div class="column column-form">
+
+                        <input type="text" id="country" pattern="[a-zA-Z]+" required />
+                        <label for="country">Country</label>
+                        <div id="countryHelp"></div>
+
+                    </div>
+                    <div class="column column-form">
+
+                        <input type="text" id="city" />
+                        <label for="city">City</label>
+                        <div id="cityHelp"></div>
+
+                    </div>
+                </div>
+                <!-- -------------------------------------Email -------------------->
+                <div class="email-password-divs">
+                    <input type="email" id="email" required />
+                    <label for="email" class="label-form">Contact Email</label>
+                    <div id="emailHelp"></div>
+                </div>
+                <!-- ------------------------------------------Pasword -------------------->
+                <div class="email-password-divs">
+                    <input type="password" id="password" required />
+                    <div id="countryHelp"></div>
+                    <label class="label-form" for="password">Password</label>
+                    <div id="passwordHelp"></div>
+                </div>
+                <div class="email-password-divs">
+                    <input type="password" id="repeatPassword" required />
+                    <label for="repeatPassword" class="label-form">Repeat your password</label>
+                    <div id="repeatPasswordHelp"></div>
+                </div>
+                <!-- ----------------------------------------Terms of service -------------------->
+
+
+                <div style="padding: 25px; display: inline-block;">
+                    <input type="checkbox" value="" id="termsOfService" required />
+                    <label for="termsOfService" class="termsOfService-label">
+                        I agree all statements in <a href="#!" class="aclass"><u>Terms of service</u></a>
+                    </label>
+                </div>
+                <!-- -------------------------------------------Register Button and Log in link-------------------->
+                <div class="register-button">
+                    <button type="submit" onclick="onSubmitRegistration()">Register</button>
+                </div>
+                
+                <p>Have already an account? <a href="#!" class="aclass" style="margin-left: 8px;"><u>Login here</u></a></p>
+                
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
