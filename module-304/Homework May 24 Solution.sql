@@ -5,7 +5,7 @@ from productlines prl, products prd
 where prd.productline_id = prl.id;
 
 -- ANSWER 
-select  prl.product_line, count(prd.product_code) as number_of_products
+select  prl.product_line, count(*) as number_of_products
 from productlines prl, products prd
 where prd.productline_id = prl.id
 group by prl.product_line;
@@ -39,7 +39,7 @@ select e.job_title, e.id -- just taking a look
 from employees e;
 
 -- ANSWER
-select e.job_title, count(e.id) as number_of_employees
+select e.job_title, count(e.id) as number_of_employees -- you can do count(*)
 from employees e
 group by e.job_title;
 
@@ -81,7 +81,7 @@ from customers c, employees e, offices o
 where c.sales_rep_employee_id = e.id  and e.office_id in(o.id);
 
 -- Answer
-select o.id as Office,  count(c.id) as number_of_customers
+select o.id as Office,  count(c.id) as number_of_customers -- we can say count(*)
 from customers c, employees e, offices o
 where c.sales_rep_employee_id = e.id  and e.office_id in(o.id)
 group by o.id;
@@ -99,11 +99,19 @@ order by margin desc;
 -- --------------------------------------------------------------------------------------------------------------------
 -- Question 2.5
 -- I want to see the top 5 customers in each state based on margin 
--- Answer
+
+-- in progress ###############
 select c.state, c.customer_name, (od.price_each - p.buy_price) as margin
 from products p, orderdetails od, orders o, customers c
-where c.id = o.customer_id and o.id in(od.order_id) and od.product_id in (p.id)
-order by margin desc;
+where c.id = o.customer_id and o.id in(od.order_id) and od.product_id in (p.id) and c.state is not NULL
+order by c.state, margin desc;
+
+-- palying around
+select c.state, c.customer_name, (od.price_each - p.buy_price) as margin
+from products p, orderdetails od, orders o, customers c
+where c.id = o.customer_id and o.id in(od.order_id) and od.product_id in (p.id) and c.state is not NULL
+order by c.state, margin desc;
+
 
 -- ------------------------------------------------------------------------------------------------------------------
 -- Question 3
@@ -142,11 +150,12 @@ select year(order_date) as year_2004, id
 from orders
 where year(order_date) = 2004;
 
+-- 
 -- ---------------------------------------------------------------------------------------------------------------------
 -- Question 6
--- I want to see the total amount of all orders grouped by the year
+-- I want to see the total amount of all orders grouped by the year. Refers to the amount of money
 
--- Answer
+-- Answer--- wrong!!!!!
 select year(order_date) as order_year, count(id) as total_amount_orders
 from orders
 group by year(order_date);
@@ -183,17 +192,22 @@ limit 5;
  from products p, orderdetails od
  where p.id = od.product_id; 
 
+select p.id, p.product_name, count(p.id) as count -- unfinished
+from orderdetails o, products p
+where p.id = o.product_id
+group by p.id;
+
 
 -- --------------------------------------------------------------------------------------------------------
 -- question 7.6
 -- how many products would be out of stock based on the amount sold acrosss time.  -- not sure if the data will support this .. basically 
 -- looking for any product where the sum of the quantity sold is greater than the quantity in stock
 
-
-select p.id as product_id, p.product_name, p.quantity_in_stock, o.id as order_id
+-- in progress ###############
+select p.id as product_id, p.product_name, p.quantity_in_stock, o.order_date, o.id as order_id -- just taking a look
 , od.quantity_ordered
 from products p, orderdetails od, orders o
-where o.id = od.order_id and p.id in(od.product_id) and o.status != 'Cancelled'
+where o.id = od.order_id and p.id = od.product_id and o.status != 'Cancelled'
 order by o.id;
 
 
@@ -218,11 +232,11 @@ from productlines;
 select distinct ofc.id as office, pl.product_line
 from offices ofc, employees e, customers c, orders o, orderdetails od, products p, productlines pl
 where ofc.id = e.office_id
-and e.id in(c.sales_rep_employee_id)
-and c.id in(o.customer_id)
-and o.id in(od.order_id)
-and p.id in(od.product_id)
-and pl.id in(p.productline_id)
+and e.id = c.sales_rep_employee_id
+and c.id = o.customer_id
+and o.id = od.order_id
+and p.id = od.product_id
+and pl.id = p.productline_id
 order by ofc.id asc;
 
 

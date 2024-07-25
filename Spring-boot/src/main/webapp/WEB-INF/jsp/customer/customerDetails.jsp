@@ -4,7 +4,7 @@
 
 <h1 class="page-title">This is a Customer detail page</h1>
 
-<section>
+<section style="padding: 25px">
     <div class="row pt-5">
         <div class="col-12">
             <h2 class="text-center">Customer ${customer.customerName}</h2>
@@ -53,6 +53,25 @@
                 <td>${customer.salesRepEmployeeId}</td>
             </tr>
         </table>
+
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <a href="/customer/edit?customerId=${customer.id}">Edit</a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <button id="deleteCustomerLink">Delete</button>
+            </div>
+        </div>
+        <!-- Pop-up window -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <p>Are you sure you want to delete this customer?</p>
+                <button id="confirmButton" data-customerId="${customer.id}">Confirm</button>
+                <button id="cancelButton">Cancel</button>
+            </div>
+        </div>
     </div>
 
 </section>

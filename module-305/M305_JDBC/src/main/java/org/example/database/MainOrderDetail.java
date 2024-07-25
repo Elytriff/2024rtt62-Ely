@@ -2,12 +2,12 @@ package org.example.database;
 
 import org.example.database.dao.CustomersDAO;
 import org.example.database.dao.OrderDAO;
-import org.example.database.dao.OrderdetailDAO;
 import org.example.database.dao.ProductDAO;
 import org.example.database.entity.Customer;
 import org.example.database.entity.Order;
 import org.example.database.entity.Orderdetail;
 import org.example.database.entity.Product;
+import org.example.database.dao.OrderdetailDAO;
 
 public class MainOrderDetail {
     // 1) Load an order from the database by id

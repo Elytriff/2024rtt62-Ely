@@ -1,4 +1,4 @@
-package org.example.Homeworks.Glab303_11_4.LinkedListsortExample;
+package org.example.Homeworks.Glab303_11_4;
 
 import java.util.Collections;
 import java.util.LinkedList;

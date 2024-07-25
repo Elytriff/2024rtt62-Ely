@@ -1,9 +1,9 @@
-package org.example;
+package org.example.Homeworks;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class HackerrankExercise {
+public class PA303_11_1Lists {
     public static void main(String[] args) {
         Scanner scanList = new Scanner(System.in);
         int listLength = scanList.nextInt();

@@ -1,11 +1,10 @@
 package org.example.HashMapExersices;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class CreatingMap {
+public class CreatingManipulatingMap {
     //1.Write a Java program to associate the specified value with the specified key in a HashMap.
     public static void main(String[] args){
         HashMap<Integer, String> zooMap = new HashMap<>();

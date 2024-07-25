@@ -8,6 +8,7 @@
         <!-- telling Hibernate that we are using Mysql database-->
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/classic_models</property>
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
 
         <!-- database connection information-->
         <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
@@ -29,7 +30,7 @@
         <!-- this is telling Hibernate which entities you have in your project-->
         <!-- each entity needs to have a line here in the config file -->
         <mapping class="org.example.database.entity.Employee"/>
-        <mapping class="org.example.database.entity.Customers"/>
+        <mapping class="org.example.database.entity.Customer"/>
         <mapping class="org.example.database.entity.Order"/>
         <mapping class="org.example.database.entity.Orderdetail"/>
         <mapping class="org.example.database.entity.Product"/>

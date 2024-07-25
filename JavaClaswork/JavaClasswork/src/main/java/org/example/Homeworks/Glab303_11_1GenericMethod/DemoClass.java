@@ -1,4 +1,4 @@
-package org.example.Homeworks.Glab303_11_1;
+package org.example.Homeworks.Glab303_11_1GenericMethod;
 
 public class DemoClass {// create a generics method
     public <T> void genericsMethod(T data) {

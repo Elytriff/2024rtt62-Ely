@@ -8,15 +8,14 @@ import com.example.springboot.database.entity.Employee;
 import com.example.springboot.database.entity.Office;
 import com.example.springboot.form.CreateEmployeeFormBean;
 import jakarta.validation.Valid;
+import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -70,7 +69,8 @@ public class EmployeeController {
         response.addObject("officeAll", officeList);
     }
 
-    @GetMapping("/createSubmit")
+    //@PostMapping("/createSubmit")
+    @RequestMapping(value="/createSubmit", method = {RequestMethod.GET, RequestMethod.POST})
     public ModelAndView createSubmit(@Valid CreateEmployeeFormBean form, BindingResult bindingResult) {// this parameter will appear in my jsp in the input("name", "id", "label")
         // argument to the constructor here is the view name - the view name can be a JSP location or a redirect URL
         ModelAndView response = new ModelAndView("employee/create");// jsp file
@@ -133,6 +133,7 @@ public class EmployeeController {
             // in some ways this is overriding the behavior of the setViewName to use a URL rather than a JSP file location
 
             response.setViewName("redirect:/employee/detail?employeeId=" + employee.getId());
+
             return response;
         }
     }

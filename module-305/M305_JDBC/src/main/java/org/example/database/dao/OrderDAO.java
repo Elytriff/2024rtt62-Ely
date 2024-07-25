@@ -1,5 +1,4 @@
 package org.example.database.dao;
-
 import jakarta.persistence.TypedQuery;
 import org.example.database.entity.Order;
 import org.hibernate.Session;
@@ -34,11 +33,11 @@ public class OrderDAO {
     }
     //----------------------------- findOrdersByCustomer_Id---------------
 
-    public List<Order> findOrdersByCustomer_Id(Integer customer_id){
+    public List<Order> findOrdersByCustomer_Id(int customer_id){
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
-        String hql2 = "SELECT o FROM Order o where o.customer_id = :xcustomer_id";
+        String hql2 = "SELECT o FROM Order o where o.customerID = :xcustomer_id";
         TypedQuery<Order> query2 = session.createQuery(hql2, Order.class);
         query2.setParameter("xcustomer_id", customer_id);
 

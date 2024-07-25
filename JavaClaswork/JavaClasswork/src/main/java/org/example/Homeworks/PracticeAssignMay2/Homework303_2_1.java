@@ -1,4 +1,4 @@
-package org.example.PracticeAssignMay2;
+package org.example.Homeworks.PracticeAssignMay2;
 
 import static java.lang.String.format;
 

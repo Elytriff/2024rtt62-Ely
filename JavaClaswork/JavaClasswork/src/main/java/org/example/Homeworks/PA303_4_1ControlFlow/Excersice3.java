@@ -1,4 +1,4 @@
-package org.example.Homeworks.ControlFlow;
+package org.example.Homeworks.PA303_4_1ControlFlow;
 
 public class Excersice3 {
     public static void main(String[] args) {

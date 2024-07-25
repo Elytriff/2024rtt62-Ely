@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row pt-5 ">
             <div class="col-12">
-                <form action="/employee/createSubmit">
+                <form action="/employee/createSubmit" method="post">
                     <!-----This hidden input field get populated when the edit function is working, this is the id of the employee to edit it is hidden to the eye but it is there passing value to the variable "form"-- -->
                     <input type="hidden" name="employeeId" value="${form.employeeId}">
                     <!---------------------------------------------- email input------------------------------ -->

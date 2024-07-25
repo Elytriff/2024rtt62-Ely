@@ -3,8 +3,6 @@ package org.example.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.math.BigDecimal;
-
 @Getter
 @Setter
 @Entity

@@ -20,6 +20,7 @@ public class ProductMain {
     private ProductDAO productDAO = new ProductDAO();
     private Scanner scanner = new Scanner(System.in);
 
+    // ---------------- The run method------------------------------
     public void run() {
         // prompt the user to enter a product name
         String productName = inputProductSearch();

@@ -162,4 +162,17 @@ public class CustomerController {
 
         return response;
     }
+
+    @GetMapping("/delete")
+    //by setting (required = false) we allow null to enter the controller so that spring dos not cause an error
+    public ModelAndView deleteCustomer(@RequestParam (required = false) Integer customerId) {
+        ModelAndView response = new ModelAndView("customer/customerDetails");
+
+        if(customerId != null) {
+            Customer customer = customerDAO.findById(customerId);
+            customerDAO.delete(customer);
+            response.setViewName("redirect:/customer/customerDetails?customerId=" + customer.getId());
+        }
+        return response;
+    }
 }

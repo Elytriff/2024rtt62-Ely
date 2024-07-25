@@ -1,4 +1,4 @@
-package org.example.PracticeAssignMay2;
+package org.example.Homeworks.PracticeAssignMay2;
 
 public class InsertArrayElement {
     public static void main(String[] args) {

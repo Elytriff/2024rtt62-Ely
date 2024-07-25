@@ -1,4 +1,4 @@
-package org.example.Homeworks.Glab303_11_1;
+package org.example.Homeworks.Glab303_11_1GenericMethod;
 
 public class MyrRunner {public static void main(String[] args) {
 // initialize the class with Integer data
