@@ -7,6 +7,7 @@ import com.example.springboot.database.entity.Customer;
 import com.example.springboot.database.entity.Employee;
 import com.example.springboot.database.entity.Office;
 import com.example.springboot.form.CreateEmployeeFormBean;
+import com.example.springboot.service.EmployeeService;
 import jakarta.validation.Valid;
 import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
@@ -34,6 +35,8 @@ public class EmployeeController {
 
     @Autowired
     private OfficeDAO officeDAO;
+    @Autowired
+    private EmployeeService employeeService;
 
 
     @GetMapping("/employee")// url direction not the same as file direction
@@ -102,31 +105,7 @@ public class EmployeeController {
             return response;
 
         } else {
-            // log out the incoming variables that are in the CreateEmployeeFormBean
-            // variable name
-            log.debug(form.toString());
-
-            Employee employee=employeeDAO.findById(form.getEmployeeId());
-            if (employee == null) {
-                employee = new Employee();
-            }
-
-            // setting the incoming user input onto a new Employee object to be saved to the database
-            employee.setEmail(form.getEmail());
-            employee.setFirstname(form.getFirstName());
-            employee.setLastname(form.getLastName());
-            employee.setReportsTo(form.getReportsTo());
-            employee.setExtension(form.getExtension());
-
-            Office office = officeDAO.findById(form.getOfficeId());
-            employee.setOffice(office);
-            employee.setJobTitle(form.getJobTitle());
-
-            // when we save to the database it will auto increment to give us a new id
-            // the new ID is available in the return from the save method.
-            // basically returns the same object .. after its been inserted into the database
-            employee = employeeDAO.save(employee);
-
+            Employee employee = employeeService.createEmployee(form);
             // redirecting to the employee detail page
             // however often times this would redirect to the edit page (which we have not created)
             // after the redirect is actually a URL not a view name
