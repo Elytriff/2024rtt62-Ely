@@ -21,10 +21,12 @@ public class AdminController {
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/dashboard")
-    public ModelAndView dashboard() {
+    public ModelAndView dashboard() throws Exception {
         ModelAndView response = new ModelAndView("admin/dashboard");
+
         User user = authenticatedUserUtilities.getCurrentUser();
         log.debug(user.toString());
+        
         return response;
     }
 
