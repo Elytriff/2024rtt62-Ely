@@ -48,9 +48,9 @@
         </table>
         <div class="row justify-content-center">
             <div class="col-auto">
-                <a href="/employee/edit?employeeId=${employee.id}">Edit</a>
+                <a href="${pageContext.request.contextPath}/employee/edit?employeeId=${employee.id}">Edit</a>
                 <br/>
-                <a href="/file-upload?employeeId=${employee.id}">Upload Image</a>
+                <a href="${pageContext.request.contextPath}/file-upload?employeeId=${employee.id}">Upload Image</a>
             </div>
         </div>
     </div>

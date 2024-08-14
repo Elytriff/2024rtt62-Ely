@@ -9,14 +9,16 @@ import com.example.springboot.database.entity.Office;
 import com.example.springboot.form.CreateEmployeeFormBean;
 import com.example.springboot.service.EmployeeService;
 import jakarta.validation.Valid;
-import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -39,6 +41,7 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
 
+     // this method will search and retrieve a list of employees with a specific lastname
     @GetMapping("/employee")// url direction not the same as file direction
     public ModelAndView employee(@RequestParam(required = false) String employeeLastname) {// this parameter will appear in my jsp in the input("name", "id", "label")
         ModelAndView response = new ModelAndView("employee/employee");// jsp file name, in this case also specifying the directory

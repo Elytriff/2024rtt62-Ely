@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row justify-content-center pt-5 pb-3">
             <div class="col-8 text-center">
-                <form action="/employee">
+                <form action="/employee/employee">
                     <div class="mb-3">
                         <label for="employeeLastname" class="form-label"><h4> Employee lastname Search</h4></label>
                         <input type="text" class="form-control" id="employeeLastname" value="${lastnameInput}" name="employeeLastname" placeholder="Enter an employee lastname"/>
@@ -48,7 +48,7 @@
                     </tr>
                     <c:forEach items="${employeesToken}" var="employee">
                         <tr>
-                            <td><a href="/?id=${employee.id}">${employee.id}</a></td>
+                            <td><a href="/employee/detail?employeeId=${employee.id}">${employee.id}</a></td>
                             <td>${employee.officeId}</td>
                             <td>${employee.firstname}</td>
                             <td>${employee.lastname}</td>
